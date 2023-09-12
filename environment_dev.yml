@@ -1,0 +1,52 @@
+# Typical conda environment for a reproducible machine learning project
+# Use `mamba env create -f environment.yml`
+# or `conda env create -f environment.yml` to install the environment
+# Created and maintained by garywei944(garywei944@gmail.com)
+
+name: cs6784
+channels:
+  - nvidia  # for CUDA
+  - pytorch
+  - huggingface
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - pytorch
+  - cudatoolkit=11.7
+  - psutil
+  - transformers
+  - evaluate
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - openpyxl  # to open excel files
+  - pandarallel  # for parallel computing panda dataframe
+  - python-dotenv
+  - ruamel.yaml
+  - tqdm
+  - torchinfo
+  - ijson  # iterative JSON parser for large json file
+  - pymongo  # MongoDB
+
+  # Visualization
+  - matplotlib
+
+  # Development
+  - jupyter
+  - click
+  - wandb
+
+  # Experiment
+  - networkx
+
+  # If you need to install pip packages, don't do `pip install xxx`
+  # Add the package here and run `mamba env update -f environment.yml --prune`
+  # for dependency completeness.
+  - pip:
+      - torch-scatter -f https://data.pyg.org/whl/torch-1.13.0+cu117.html
+      - git+https://github.com/rusty1s/pytorch_sparse.git
+      - torch_geometric
+      - sparse==0.1.1

@@ -1,0 +1,57 @@
+# Typical conda environment for a reproducible machine learning project
+# Use `mamba env create -f environment.yml`
+# or `conda env create -f environment.yml` to install the environment
+# Created and maintained by garywei944(garywei944@gmail.com)
+
+name: cs6784
+channels:
+  - nvidia # for CUDA
+  - pytorch
+  - huggingface
+  - conda-forge
+  - defaults
+  - pyg  # pytorch_geometric
+dependencies:
+  - python=3.10
+  - pip
+  - cudatoolkit=11.7
+  - psutil
+  - python-dotenv
+
+  # Framework
+  - pytorch=1.13
+  - torchinfo
+  - numpy
+  - scipy
+  - pandas
+  - pandarallel  # for parallel computing panda dataframe
+  - scikit-learn
+  # https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html
+  - pyg  # pytorch geometry
+
+  # NLP
+  - transformers
+  - evaluate
+  - sentence-transformers
+
+  # Data processing
+  - ruamel.yaml
+  - openpyxl # to open excel files
+  - ijson # iterative JSON parser for large json file
+  - pymongo # MongoDB
+
+  # Visualization
+  - matplotlib
+  - tqdm
+  - networkx
+
+  # Development
+  - jupyter
+  - click
+  - wandb
+
+  # # If you need to install pip packages, don't do `pip install xxx`
+  # # Add the package here and run `mamba env update -f environment.yml --prune`
+  # # for dependency completeness.
+  # - pip:
+  #     - singleton-decorator
